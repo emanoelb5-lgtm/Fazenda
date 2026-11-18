@@ -2,10 +2,15 @@ name: Publicar visualizador
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - docs/**
-      - README.md
-      - AGENTS.md
+    paths:
+      - web/**
+      - public/**
+      - data/**
+      - scripts/prepare-web.mjs
+      - package.json
+      - package-lock.json
+      - vite.config.js
+      - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 permissions:
   contents: read
