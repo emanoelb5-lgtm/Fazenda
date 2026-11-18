@@ -1,0 +1,11 @@
+{
+  "phase": 0,
+  "scene_id": "fazenda-fase-0",
+  "blender_version": "4.3.2",
+  "seed": 42,
+  "units": "meters",
+  "tree_instances": 1,
+  "mesh_objects": 21,
+  "polygons": 7085,
+  "render_generated": true
+}

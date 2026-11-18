@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fazenda scene v1",
+  "type": "object",
+  "required": ["schema_version", "scene_id", "units", "coordinate_system", "terrain", "assets", "instances"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "units": { "const": "meters" },
+    "coordinate_system": { "const": "right-handed-y-up" },
+    "scene_id": { "type": "string", "minLength": 1 },
+    "terrain": {
+      "type": "object",
+      "required": ["instance_id", "asset_id", "size", "resolution", "height_amplitude", "base_depth"],
+      "properties": {
+        "size": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "exclusiveMinimum": 0 } },
+        "resolution": { "type": "integer", "minimum": 2, "maximum": 256 },
+        "height_amplitude": { "type": "number", "minimum": 0 },
+        "base_depth": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": { "type": "object", "required": ["asset_id", "source", "model", "license"] }
+    },
+    "instances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["instance_id", "asset_id", "position", "rotation", "scale", "snap_to_ground"],
+        "properties": {
+          "instance_id": { "type": "string", "minLength": 1 },
+          "asset_id": { "type": "string", "minLength": 1 },
+          "position": { "$ref": "#/$defs/vector3" },
+          "rotation": { "$ref": "#/$defs/vector3" },
+          "scale": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number", "exclusiveMinimum": 0 } },
+          "snap_to_ground": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "vector3": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } }
+  }
+}

@@ -1,0 +1,25 @@
+name: Validar projeto
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run check:assets
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Conferir visualizador em desktop e tela móvel
+        run: npx playwright test

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "scene_id": "fazenda-fase-0",
+  "title": "O primeiro pedaço da fazenda",
+  "phase": 0,
+  "units": "meters",
+  "coordinate_system": "right-handed-y-up",
+  "seed": 42,
+  "terrain": {
+    "instance_id": "terreno-001",
+    "asset_id": "terreno-prova-v1",
+    "size": [40, 40],
+    "resolution": 48,
+    "height_amplitude": 0.65,
+    "base_depth": 1.4
+  },
+  "assets": [
+    {
+      "asset_id": "arvore-nativa-v1",
+      "label": "Árvore de referência",
+      "source": "blender/assets/vegetacao/arvore-nativa-v1.blend",
+      "model": "models/arvore-nativa-v1.glb",
+      "license": "proprietary-project-original"
+    }
+  ],
+  "instances": [
+    {
+      "instance_id": "arvore-001",
+      "asset_id": "arvore-nativa-v1",
+      "position": [0, 0, 0],
+      "rotation": [0, 0.3, 0],
+      "scale": [1, 1, 1],
+      "snap_to_ground": true,
+      "sector": "prova-tecnica"
+    }
+  ],
+  "viewer": {
+    "camera": [32, 25, 32],
+    "target": [0, 1.5, 0],
+    "min_distance": 8,
+    "max_distance": 95
+  }
+}

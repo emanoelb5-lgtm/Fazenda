@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.openai/
+__pycache__/
+*.blend1
+*.blend2
+*.log
+.DS_Store
+test-results/
+playwright-report/
