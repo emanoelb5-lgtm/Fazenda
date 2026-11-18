@@ -169,7 +169,8 @@ async function init() {
     model.traverse(object => {
       if (!object.isMesh) return;
       if (rendererMode === 'svg') {
-        if (object.name.includes('Cobertura')) object.visible = false;
+        // SVG uses painter ordering, so omit the underside and fine grass.
+        if (object.name.includes('Cobertura') || object.name.includes('Perfil')) object.visible = false;
         const simplified = original => new THREE.MeshBasicMaterial({ color: original.color, side: original.side });
         object.material = Array.isArray(object.material) ? object.material.map(simplified) : simplified(object.material);
       }
