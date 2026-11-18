@@ -8,3 +8,4 @@
 6. **Compatibilidade sem WebGL.** O navegador de revisão bloqueia GPU/WebGL. Nessa situação, SVGRenderer permite explorar a mesma geometria com materiais simplificados e sem capim. O visualizador informa a limitação; WebGL continua sendo o modo principal no Android compatível.
 7. **Teste de WebGL no CI.** O workflow usa Chromium com rasterização por software para verificar o carregamento, câmeras, links e duas larguras de tela. Isso não substitui testar um Android físico.
 8. **Sem recursos das fases seguintes.** Não há editor de objetos, salvamento local, personagens ou vídeos na prova. Preservar esse limite até uma solicitação de avanço.
+9. **Blender fixado no CI.** A instalação pelo gerenciador de pacotes do runner permaneceu ocupada por vários minutos. O workflow passou a baixar o Blender 4.3.2 diretamente do distribuidor oficial, verificar seu SHA-256 publicado e guardar a instalação em cache. Assim a versão do render não depende da versão do pacote Ubuntu.
